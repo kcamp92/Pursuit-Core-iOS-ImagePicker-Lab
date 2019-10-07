@@ -13,20 +13,20 @@ class ImagePickerViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var userNameLabel: UILabel!
-    // MARK: - Internal Properties
+   //  MARK: - Internal Properties
     
-    //    var images = [UIImage]() {
-    //        didSet {
-    //            imagesCollectionView.reloadData()
-    //
-    //        }
-    //    }
+    var images = [UIImage]() {}
+//            didSet {
+//                imagesCollectionView.reloadData()
+//
+//            }
+        
     // MARK: - IBActions
     
     @IBAction func addNewPhoto(_ sender: Any) {
-//        let imagePickerVC = UIImagePickerController()
-//        imagePickerVC.delegate = self
-//        present(imagePickerVC, animated: true)
+        let imagePickerVC = UIImagePickerController()
+        imagePickerVC.delegate = self
+        present(imagePickerVC, animated: true)
     }
     
     
@@ -41,29 +41,25 @@ class ImagePickerViewController: UIViewController {
     
     // MARK: - Private methods
     
-//    // https://nshipster.com/image-resizing/
-//    func resized(image: UIImage, for size: CGSize) -> UIImage {
-//        let renderer = UIGraphicsImageRenderer(size: size)
-//        return renderer.image { (context) in
-//            image.draw(in: CGRect(origin: .zero, size: size))
-//        }
-//    }
-//
-    // MARK: - UICollectionViewDelegateFlowLayout
+    // https://nshipster.com/image-resizing/
+    func resized(image: UIImage, for size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { (context) in
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
 }
-
-// MARK: - UICollectionViewDataSource
-
 
 
 // MARK: - UIImagePickerControllerDelegate
 
-//extension ImagePickerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-//            return
-//        }
-//        images.append(image)
-//        dismiss(animated: true, completion: nil)
-//    }
-//}
+extension ImagePickerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        images.append(image)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
