@@ -10,17 +10,19 @@ import UIKit
 
 class ImagePickerViewController: UIViewController {
     
+    var profileDetails: Profile!
+    
     // MARK: - IBOutlets
     
+    @IBOutlet weak var Outlet: UITextField!
+    @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var userNameSaved: UILabel!
+    
    //  MARK: - Internal Properties
     
-    var images = [UIImage]() {}
-//            didSet {
-//                imagesCollectionView.reloadData()
-//
-//            }
-        
+
     // MARK: - IBActions
     
     @IBAction func addNewPhoto(_ sender: Any) {
@@ -29,13 +31,28 @@ class ImagePickerViewController: UIViewController {
         present(imagePickerVC, animated: true)
     }
     
-    
-    
+    func loadData(){
+        do {
+            profileDetails = try ProfilePersistenceHelper.manager.getProfiles()
+        } catch {
+            print(error)
+        }
+    }
+//
+//     func loadData(){
+//            do {
+//                sloths = try SlothPersistenceHelper.manager.getSloths()
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
+
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameLabel.text = "UserName"
+        userNameLabel.text = "UserName:"
         self.view.backgroundColor = .systemPink
     }
     
@@ -58,7 +75,7 @@ extension ImagePickerViewController: UIImagePickerControllerDelegate, UINavigati
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
-        images.append(image)
+        avatar.image = image
         dismiss(animated: true, completion: nil)
     }
 }

@@ -15,8 +15,8 @@
 		0BC6DCFB2347D7D700CA0D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC6DCF92347D7D700CA0D49 /* LaunchScreen.storyboard */; };
 		0BC6DD062347D7D700CA0D49 /* Pursuit_Core_iOS_ImagePicker_LabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6DD052347D7D700CA0D49 /* Pursuit_Core_iOS_ImagePicker_LabTests.swift */; };
 		0BC6DD41234BE62C00CA0D49 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6DD40234BE62C00CA0D49 /* PersistenceHelper.swift */; };
-		0BC6DD43234BE6D000CA0D49 /* UserNamePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6DD42234BE6D000CA0D49 /* UserNamePersistenceHelper.swift */; };
 		0BC6DD45234BE71B00CA0D49 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6DD44234BE71B00CA0D49 /* Model.swift */; };
+		0BC6DD47234CDEFA00CA0D49 /* ProfilePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC6DD46234CDEFA00CA0D49 /* ProfilePersistenceHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +42,8 @@
 		0BC6DD052347D7D700CA0D49 /* Pursuit_Core_iOS_ImagePicker_LabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pursuit_Core_iOS_ImagePicker_LabTests.swift; sourceTree = "<group>"; };
 		0BC6DD072347D7D700CA0D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC6DD40234BE62C00CA0D49 /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
-		0BC6DD42234BE6D000CA0D49 /* UserNamePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNamePersistenceHelper.swift; sourceTree = "<group>"; };
 		0BC6DD44234BE71B00CA0D49 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0BC6DD46234CDEFA00CA0D49 /* ProfilePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePersistenceHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 				0BC6DCF22347D7CF00CA0D49 /* ViewController.swift */,
 				0BC6DD44234BE71B00CA0D49 /* Model.swift */,
 				0BC6DD40234BE62C00CA0D49 /* PersistenceHelper.swift */,
-				0BC6DD42234BE6D000CA0D49 /* UserNamePersistenceHelper.swift */,
+				0BC6DD46234CDEFA00CA0D49 /* ProfilePersistenceHelper.swift */,
 				0BC6DCF42347D7CF00CA0D49 /* Main.storyboard */,
 				0BC6DCF72347D7D700CA0D49 /* Assets.xcassets */,
 				0BC6DCF92347D7D700CA0D49 /* LaunchScreen.storyboard */,
@@ -210,10 +210,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC6DCF32347D7CF00CA0D49 /* ViewController.swift in Sources */,
-				0BC6DD43234BE6D000CA0D49 /* UserNamePersistenceHelper.swift in Sources */,
 				0BC6DCEF2347D7CF00CA0D49 /* AppDelegate.swift in Sources */,
 				0BC6DD45234BE71B00CA0D49 /* Model.swift in Sources */,
 				0BC6DCF12347D7CF00CA0D49 /* SceneDelegate.swift in Sources */,
+				0BC6DD47234CDEFA00CA0D49 /* ProfilePersistenceHelper.swift in Sources */,
 				0BC6DD41234BE62C00CA0D49 /* PersistenceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

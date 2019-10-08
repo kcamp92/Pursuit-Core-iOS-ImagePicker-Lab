@@ -11,5 +11,5 @@ import UIKit
 
 struct Profile: Codable {
     let username: String
-   // let image: UIImage
+    let image: Data
 }
