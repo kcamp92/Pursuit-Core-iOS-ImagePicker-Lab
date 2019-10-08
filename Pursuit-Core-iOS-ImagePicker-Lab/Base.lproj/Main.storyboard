@@ -75,10 +75,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="Outlet" destination="Ktg-Xd-jQd" id="uFu-fD-taQ"/>
                         <outlet property="avatar" destination="2cd-UQ-U7C" id="xyy-aG-idX"/>
                         <outlet property="userNameLabel" destination="DYC-Ao-HLS" id="31s-gI-mCA"/>
                         <outlet property="userNameSaved" destination="OYk-DV-CdE" id="XV8-Ag-xPl"/>
+                        <outlet property="usernameTextField" destination="Ktg-Xd-jQd" id="2ti-xy-eFZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

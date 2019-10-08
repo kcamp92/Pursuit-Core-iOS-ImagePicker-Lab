@@ -10,44 +10,57 @@ import UIKit
 
 class ImagePickerViewController: UIViewController {
     
-    var profileDetails: Profile!
+ var newUserProfile = [Profile]()
+    
+    var imageSaved = Data() {
+        didSet {
+      
+        }
+    }
+    
+    var usernameEntered = "" {
+        didSet{
+            try? ProfilePersistenceHelper.manager.save(newProfile: )
+        }
+    }
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var Outlet: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var userNameSaved: UILabel!
     
-   //  MARK: - Internal Properties
+    //  MARK: - Internal Properties
+    let newUser = Profile.init(username: "", image: Data())
     
-
     // MARK: - IBActions
     
     @IBAction func addNewPhoto(_ sender: Any) {
         let imagePickerVC = UIImagePickerController()
+      
         imagePickerVC.delegate = self
         present(imagePickerVC, animated: true)
+        
+        DispatchQueue.global(qos: .utility).async {
+            try? ProfilePersistenceHelper.manager.save(newProfile: self.newUser)
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
     
-    func loadData(){
-        do {
-            profileDetails = try ProfilePersistenceHelper.manager.getProfiles()
-        } catch {
-            print(error)
+        func loadData(){
+            do {
+                newUserProfile = try ProfilePersistenceHelper.manager.getProfiles()
+                
+            } catch {
+                print(error)
+            }
         }
-    }
-//
-//     func loadData(){
-//            do {
-//                sloths = try SlothPersistenceHelper.manager.getSloths()
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
-
+    
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -76,7 +89,24 @@ extension ImagePickerViewController: UIImagePickerControllerDelegate, UINavigati
             return
         }
         avatar.image = image
+        imageSaved = image.pngData()!
         dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK: - TextFieldDelegate
+
+extension ImagePickerViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else {
+            return false
+        }
+        let range = Range(range, in: text)!
+        let newText = text.replacingCharacters(in: range, with: string)
+        usernameEntered = newText
+        return true
+    }
+}
+
 
